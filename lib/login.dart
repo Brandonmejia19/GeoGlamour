@@ -21,6 +21,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.deepOrange,
         automaticallyImplyLeading: false,
         title: Text('Inicio de Sesión'),
       ),
@@ -63,9 +64,11 @@ class LoginScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => MapScreen()),
                 );
               },
-              child: Text('Iniciar sesion'),
-            ),
-            SizedBox(height: 10.0),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange), // Cambia el color aquí
+              ),
+              child: Text('Iniciar sesión', style: TextStyle(color: Colors.white)), // Cambia el color del texto si es necesario
+            ), SizedBox(height: 10.0),
 
             TextButton(
               onPressed: () {

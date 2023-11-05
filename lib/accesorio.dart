@@ -158,6 +158,9 @@ class accesorios extends StatelessWidget {
                               // Agrega aquí la lógica para el botón de "Localizar"
                             },
                             child: Text('Localizar'),
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange), // Cambia el color aquí
+                            ),
                           ),
                         ],
                       ),
@@ -205,6 +208,9 @@ class accesorios extends StatelessWidget {
                               // Agrega aquí la lógica para el botón de "Localizar"
                             },
                             child: Text('Localizar'),
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange), // Cambia el color aquí
+                            ),
                           ),
                         ],
                       ),
@@ -252,6 +258,9 @@ class accesorios extends StatelessWidget {
                               // Agrega aquí la lógica para el botón de "Localizar"
                             },
                             child: Text('Localizar'),
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange), // Cambia el color aquí
+                            ),
                           ),
                         ],
                       ),
