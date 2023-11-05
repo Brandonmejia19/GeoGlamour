@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:geoglamour/accesorio.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import 'login.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,12 +16,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MapScreen extends StatefulWidget {
-  @override
-  _MapScreenState createState() => _MapScreenState();
-}
 
-class _MapScreenState extends State<MapScreen> {
+class MapScreen extends StatelessWidget {
+  @override
   late GoogleMapController mapController;
   LatLng? _currentLocation;
   LatLng _initialLocation = const LatLng(13.565842, -89.115616); // Coordenadas iniciales
@@ -63,34 +63,55 @@ class _MapScreenState extends State<MapScreen> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            const DrawerHeader(
-              child: Text(
-                'GeoGlamour',
-                style: TextStyle(fontSize: 24, color: Colors.white),
-              ),
+            DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.deepOrange,
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    'GeoGlamour',
+                    style: TextStyle(fontSize: 30, color: Colors.white),
+                  ),Image.asset(
+                    'logoblanco.png',
+                    width: 1, // Ajusta el ancho según tus preferencias
+                    height: 1, // Ajusta la altura según tus preferencias
+                  ), //
+                ],
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Inicio'),
+              title: Text('Mapa',
+                style: TextStyle(
+                    fontSize: 20
+                ),),
               onTap: () {
-                // Navegar a la página de inicio
+                Navigator.pop(context,MaterialPageRoute(builder: (context) => MyApp()),); // Cierra el Drawer
+                // Agrega la lógica para navegar a la página de inicio aquí
               },
             ),
             ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Configuración'),
+              title: Text('Accesorios',
+                style: TextStyle(
+                    fontSize: 20
+                ),),
               onTap: () {
-                // Navegar a la página de configuración
+                Navigator.push(context,MaterialPageRoute(builder: (context) => accesorios()),); // Cierra el Drawer
+                // Agrega la lógica para navegar a la página "Acerca de" aquí
               },
             ),
             ListTile(
-              leading: const Icon(Icons.info),
-              title: const Text('Acerca de'),
+              title: Text(
+                'Cerrar sesión',
+                style: TextStyle(
+                  color: Colors.red, // Cambia el color del texto a rojo
+                  fontSize: 20.0, // Cambia el tamaño de la fuente según tus preferencias
+                  fontWeight: FontWeight.bold, // Cambia el peso de la fuente según tus preferencias
+                ),
+              ),
               onTap: () {
-                // Navegar a la página "Acerca de"
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()),); // Cierra el Drawer
+                // Agrega la lógica para navegar a la página "Acerca de" aquí
               },
             ),
           ],

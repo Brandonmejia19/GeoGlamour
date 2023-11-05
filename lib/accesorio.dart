@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geoglamour/main.dart';
 import 'login.dart';
 
 void main() {
@@ -41,7 +42,6 @@ class accesorios extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-
             DrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.deepOrange,
@@ -60,22 +60,22 @@ class accesorios extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text('Inicio',
+              title: Text('Mapa',
                 style: TextStyle(
                     fontSize: 20
                 ),),
               onTap: () {
-                Navigator.pop(context); // Cierra el Drawer
+                Navigator.push(context,MaterialPageRoute(builder: (context) =>MapScreen()),); // Cierra el Drawer
                 // Agrega la lógica para navegar a la página de inicio aquí
               },
             ),
             ListTile(
-              title: Text('Acerca de',
+              title: Text('Accesorios',
                 style: TextStyle(
                     fontSize: 20
                 ),),
               onTap: () {
-                Navigator.pop(context); // Cierra el Drawer
+                Navigator.push(context,MaterialPageRoute(builder: (context) => accesorios()),); // Cierra el Drawer
                 // Agrega la lógica para navegar a la página "Acerca de" aquí
               },
             ),

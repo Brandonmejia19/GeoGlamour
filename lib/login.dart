@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:geoglamour/main.dart';
 import 'accesorio.dart';
 
 void main() {
@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => accesorios()),
+                  MaterialPageRoute(builder: (context) => MapScreen()),
                 );
               },
               child: Text('Iniciar sesion'),
