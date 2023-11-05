@@ -48,6 +48,7 @@ class MapScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mapa Geoglamour', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+        backgroundColor: Colors.deepOrange,
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -58,6 +59,7 @@ class MapScreen extends StatelessWidget {
             );
           },
         ),
+
       ),
       drawer: Drawer(
         child: ListView(
