@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MapScreen extends StatelessWidget {
-  @override
   late GoogleMapController mapController;
   LatLng? _currentLocation;
   LatLng _initialLocation =
@@ -78,7 +77,7 @@ class MapScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 30, color: Colors.white),
                   ),
                   Image.asset(
-                    'logoblanco.png',
+                    'assets/logo.png',
                     width: 1, // Ajusta el ancho según tus preferencias
                     height: 1, // Ajusta la altura según tus preferencias
                   ), //
@@ -144,10 +143,32 @@ class MapScreen extends StatelessWidget {
                 // Agrega la lógica para navegar a la página "Acerca de" aquí
               },
             ),
+          /* COMENTARIO PARA PRUEBA DE UBICACIO EN TIEMPO REAL
+           ListTile(
+              title: Text(
+                'Pruebaaaa',
+                style: TextStyle(
+                  color: Colors.red,
+                  // Cambia el color del texto a rojo
+                  fontSize: 20.0,
+                  // Cambia el tamaño de la fuente según tus preferencias
+                  fontWeight: FontWeight
+                      .bold, // Cambia el peso de la fuente según tus preferencias
+                ),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MapScreen2()),
+                ); // Cierra el Drawer
+                // Agrega la lógica para navegar a la página "Acerca de" aquí
+              },
+            ),*/
           ],
         ),
       ),
       body: Column(
+
         children: [
           Container(
             color: Colors.white,
@@ -156,9 +177,9 @@ class MapScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  flex: 2,
+                  flex: 1,
                   // Ajusta el valor de flex según tu preferencia para el ancho de la imagen
-                  child: Image.asset('images/pulsera1.jpg'),
+                  child: Image.asset('assets/collar.png'),
                   // Cambia 'ruta_de_la_imagen.png' por la ruta de tu imagen
                 ),
                 const SizedBox(width: 16.0),
@@ -202,7 +223,7 @@ class MapScreen extends StatelessWidget {
                       : Set<Marker>(),
                 ),
                 Positioned(
-                  top: 500,
+                  top: 470,
                   right: 0,
                   child: FloatingActionButton(
                     onPressed: _centerOnLocation,
