@@ -121,7 +121,91 @@ class reportar extends StatelessWidget {
           ],
         ),
       ),
-      body: Container(),
+        body: ReportAccessoryForm(),
+
     );
   }
+
 }
+class ReportAccessoryForm extends StatefulWidget {
+  @override
+  _ReportAccessoryFormState createState() => _ReportAccessoryFormState();
+}
+
+class _ReportAccessoryFormState extends State<ReportAccessoryForm> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text('Nombre del accesorio:'),
+          TextFormField(
+            controller: nameController,
+            decoration: InputDecoration(
+              hintText: 'Ejemplo: Cartera, Llaves, Gafas, etc.',
+            ),
+          ),
+          SizedBox(height: 16.0),
+          Text('Descripción del accesorio perdido:'),
+          TextFormField(
+            controller: descriptionController,
+            maxLines: 5,
+            decoration: InputDecoration(
+              hintText: 'Escribe una descripción detallada del accesorio perdido.',
+            ),
+          ),
+          SizedBox(height: 16.0),
+          ElevatedButton(
+            onPressed: () {
+              // Aquí puedes agregar la lógica para enviar el reporte del accesorio perdido
+              String accessoryName = nameController.text;
+              String accessoryDescription = descriptionController.text;
+
+              // Puedes enviar estos datos a un servicio web o una base de datos
+              // para su procesamiento.
+              // Por ahora, simplemente mostraremos una alerta con los datos.
+
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text('Reporte Enviado'),
+                    content: Text(
+                      'Nombre del accesorio: $accessoryName\nDescripción: $accessoryDescription',
+                    ),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text('Cerrar'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            child: Text('Reportar Accesorio Perdido'),
+            style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(
+                Colors.deepOrange), // Cambia el color aquí
+          ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    descriptionController.dispose();
+    super.dispose();
+  }
+}
+

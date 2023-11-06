@@ -148,7 +148,7 @@ class accesorios extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
+            ), //TITULO
             Divider(), //
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -182,13 +182,23 @@ class accesorios extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => reportar()),
+                              );
                               // Agrega aquí la lógica para el botón de "Información"
                             },
-                            child: Text('Información'),
+                            child: Text('Reportar'),
                           ),
                           SizedBox(width: 16.0), // Espacio entre los botones
                           ElevatedButton(
                             onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MapScreen()),
+                              );
                               // Agrega aquí la lógica para el botón de "Localizar"
                             },
                             child: Text('Localizar'),
@@ -204,8 +214,7 @@ class accesorios extends StatelessWidget {
                 ),
               ],
             ),
-            Divider(), // Línea divisoria
-            // Aquí puedes agregar otro cuadro similar
+            Divider(),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -238,13 +247,23 @@ class accesorios extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => reportar()),
+                              );
                               // Agrega aquí la lógica para el botón de "Información"
                             },
-                            child: Text('Información'),
+                            child: Text('Reportar'),
                           ),
                           SizedBox(width: 16.0), // Espacio entre los botones
                           ElevatedButton(
                             onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MapScreen()),
+                              );
                               // Agrega aquí la lógica para el botón de "Localizar"
                             },
                             child: Text('Localizar'),
@@ -260,8 +279,7 @@ class accesorios extends StatelessWidget {
                 ),
               ],
             ),
-            Divider(), // Línea divisoria
-            // Aquí puedes agregar otro cuadro similar
+            Divider(),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -294,13 +312,23 @@ class accesorios extends StatelessWidget {
                         children: [
                           ElevatedButton(
                             onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => reportar()),
+                              );
                               // Agrega aquí la lógica para el botón de "Información"
                             },
-                            child: Text('Información'),
+                            child: Text('Reportar'),
                           ),
                           SizedBox(width: 16.0), // Espacio entre los botones
                           ElevatedButton(
                             onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MapScreen()),
+                              );
                               // Agrega aquí la lógica para el botón de "Localizar"
                             },
                             child: Text('Localizar'),
