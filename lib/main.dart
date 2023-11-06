@@ -50,7 +50,7 @@ class MapScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Mapa Geoglamour',
             style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Colors.black,
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -68,7 +68,7 @@ class MapScreen extends StatelessWidget {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.deepOrange,
+                color: Colors.black,
               ),
               child: Column(
                 children: [
@@ -77,14 +77,15 @@ class MapScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 30, color: Colors.white),
                   ),
                   Image.asset(
-                    'assets/logo.png',
-                    width: 1, // Ajusta el ancho según tus preferencias
-                    height: 1, // Ajusta la altura según tus preferencias
+                    'assets/logo2.png',
+                    width: 100, // Ajusta el ancho según tus preferencias
+                    height: 98, // Ajusta la altura según tus preferencias
                   ), //
                 ],
               ),
             ),
             ListTile(
+              leading: Icon(Icons.map),
               title: Text(
                 'Mapa',
                 style: TextStyle(fontSize: 20),
@@ -92,12 +93,13 @@ class MapScreen extends StatelessWidget {
               onTap: () {
                 Navigator.pop(
                   context,
-                  MaterialPageRoute(builder: (context) => MyApp()),
+                  MaterialPageRoute(builder: (context) => MapScreen()),
                 ); // Cierra el Drawer
                 // Agrega la lógica para navegar a la página de inicio aquí
               },
             ),
             ListTile(
+              leading: Icon(Icons.diamond_rounded),
               title: Text(
                 'Accesorios',
                 style: TextStyle(fontSize: 20),
@@ -111,6 +113,7 @@ class MapScreen extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: Icon(Icons.report),
               title: Text(
                 'Reportar',
                 style: TextStyle(fontSize: 20),
@@ -124,6 +127,7 @@ class MapScreen extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: Icon(Icons.exit_to_app),
               title: Text(
                 'Cerrar sesión',
                 style: TextStyle(
@@ -143,7 +147,7 @@ class MapScreen extends StatelessWidget {
                 // Agrega la lógica para navegar a la página "Acerca de" aquí
               },
             ),
-          /* COMENTARIO PARA PRUEBA DE UBICACIO EN TIEMPO REAL
+            /* COMENTARIO PARA PRUEBA DE UBICACIO EN TIEMPO REAL
            ListTile(
               title: Text(
                 'Pruebaaaa',
@@ -168,7 +172,6 @@ class MapScreen extends StatelessWidget {
         ),
       ),
       body: Column(
-
         children: [
           Container(
             color: Colors.white,

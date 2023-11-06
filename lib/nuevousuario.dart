@@ -59,9 +59,10 @@ class RegisterUserScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text('Registro de Nuevo Usuario'),
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Colors.black,
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
@@ -72,21 +73,21 @@ class RegisterUserScreen extends StatelessWidget {
             TextFormField(
               controller: usernameController,
               decoration: InputDecoration(
-                hintText: 'Escribe un nombre de usuario',
+                hintText: 'Escribe un nombre de usuario',prefixIcon: Icon(Icons.person),
               ),
             ),
             SizedBox(height: 16.0),
-            Text('Contraseña:'),
             TextFormField(
               controller: passwordController,
               obscureText: true,
               decoration: InputDecoration(
-                hintText: 'Escribe una contraseña',
+                hintText: 'Escribe una contraseña',prefixIcon: Icon(Icons.remove_red_eye_outlined),
               ),
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
+
                 // Aquí puedes agregar la lógica para registrar al nuevo usuario
                 String username = usernameController.text;
                 String password = passwordController.text;
@@ -101,7 +102,7 @@ class RegisterUserScreen extends StatelessWidget {
                     return AlertDialog(
                       title: Text('Usuario Registrado'),
                       content: Text(
-                        'Nombre de Usuario: $username\nContraseña: $password',
+                        'Nombre de Usuario: $username\nContraseña: $password',//VARIABLES
                       ),
                       actions: <Widget>[
                         TextButton(
@@ -115,7 +116,11 @@ class RegisterUserScreen extends StatelessWidget {
                   },
                 );
               },
-              child: Text('Registrar Usuario'),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Colors.deepOrange), // Cambia el color aquí
+              ),
+              child:Text('Registrar Usuario',),
             ),
           ],
         ),

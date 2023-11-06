@@ -29,4 +29,3 @@ _openGoogleMapsLocation(String googleMapsLink) async {
   );
 }
 */
-

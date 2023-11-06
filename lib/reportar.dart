@@ -33,8 +33,19 @@ class reportar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Reportar'),
-        backgroundColor: Colors.deepOrange,
+        title: const Text('Mapa Geoglamour',
+            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+        backgroundColor: Colors.black,
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          },
+        ),
       ),
       drawer: Drawer(
         child: ListView(
@@ -42,7 +53,7 @@ class reportar extends StatelessWidget {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.deepOrange,
+                color: Colors.black,
               ),
               child: Column(
                 children: [
@@ -51,20 +62,21 @@ class reportar extends StatelessWidget {
                     style: TextStyle(fontSize: 30, color: Colors.white),
                   ),
                   Image.asset(
-                    'logoblanco.png',
-                    width: 1, // Ajusta el ancho según tus preferencias
-                    height: 1, // Ajusta la altura según tus preferencias
+                    'assets/logo2.png',
+                    width: 100, // Ajusta el ancho según tus preferencias
+                    height: 98, // Ajusta la altura según tus preferencias
                   ), //
                 ],
               ),
             ),
             ListTile(
+              leading: Icon(Icons.map),
               title: Text(
                 'Mapa',
                 style: TextStyle(fontSize: 20),
               ),
               onTap: () {
-                Navigator.push(
+                Navigator.pop(
                   context,
                   MaterialPageRoute(builder: (context) => MapScreen()),
                 ); // Cierra el Drawer
@@ -72,6 +84,7 @@ class reportar extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: Icon(Icons.diamond_rounded),
               title: Text(
                 'Accesorios',
                 style: TextStyle(fontSize: 20),
@@ -85,6 +98,7 @@ class reportar extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: Icon(Icons.report),
               title: Text(
                 'Reportar',
                 style: TextStyle(fontSize: 20),
@@ -98,6 +112,7 @@ class reportar extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: Icon(Icons.exit_to_app),
               title: Text(
                 'Cerrar sesión',
                 style: TextStyle(
@@ -117,16 +132,35 @@ class reportar extends StatelessWidget {
                 // Agrega la lógica para navegar a la página "Acerca de" aquí
               },
             ),
-            //CerrarSesion
+            /* COMENTARIO PARA PRUEBA DE UBICACIO EN TIEMPO REAL
+           ListTile(
+              title: Text(
+                'Pruebaaaa',
+                style: TextStyle(
+                  color: Colors.red,
+                  // Cambia el color del texto a rojo
+                  fontSize: 20.0,
+                  // Cambia el tamaño de la fuente según tus preferencias
+                  fontWeight: FontWeight
+                      .bold, // Cambia el peso de la fuente según tus preferencias
+                ),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MapScreen2()),
+                ); // Cierra el Drawer
+                // Agrega la lógica para navegar a la página "Acerca de" aquí
+              },
+            ),*/
           ],
         ),
       ),
-        body: ReportAccessoryForm(),
-
+      body: ReportAccessoryForm(),
     );
   }
-
 }
+
 class ReportAccessoryForm extends StatefulWidget {
   @override
   _ReportAccessoryFormState createState() => _ReportAccessoryFormState();
@@ -156,7 +190,8 @@ class _ReportAccessoryFormState extends State<ReportAccessoryForm> {
             controller: descriptionController,
             maxLines: 5,
             decoration: InputDecoration(
-              hintText: 'Escribe una descripción detallada del accesorio perdido.',
+              hintText:
+                  'Escribe una descripción detallada del accesorio perdido.',
             ),
           ),
           SizedBox(height: 16.0),
@@ -192,9 +227,9 @@ class _ReportAccessoryFormState extends State<ReportAccessoryForm> {
             },
             child: Text('Reportar Accesorio Perdido'),
             style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-                Colors.deepOrange), // Cambia el color aquí
-          ),
+              backgroundColor: MaterialStateProperty.all<Color>(
+                  Colors.deepOrange), // Cambia el color aquí
+            ),
           ),
         ],
       ),
@@ -208,4 +243,3 @@ class _ReportAccessoryFormState extends State<ReportAccessoryForm> {
     super.dispose();
   }
 }
-

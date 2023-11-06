@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geoglamour/main.dart';
 import 'package:geoglamour/nuevousuario.dart';
-import 'accesorio.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,31 +20,37 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Colors.deepOrange,
+        backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
+        leading: Icon(Icons.person),
         title: Text('Inicio de Sesión'),
       ),
       body: Container(
+        color: Colors.white,
         padding: EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FlutterLogo(size: 100.0),
-            // Puedes reemplazarlo con tu propio logo o imagen
-
-            SizedBox(height: 20.0),
+            Image.asset(
+              'assets/logon.png',
+              width: 250, // Ajusta el ancho según tus preferencias
+              height: 250, // Ajusta la altura según tus preferencias
+            ),
 
             Text(
-              'Bienvenido',
+              '',//TEXTO
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
 
             SizedBox(height: 20.0),
 
+
             TextFormField(
               decoration: InputDecoration(
                 labelText: 'Nombre de usuario',
+                prefixIcon: Icon(Icons.person),
               ),
             ),
 
@@ -55,6 +60,7 @@ class LoginScreen extends StatelessWidget {
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Contraseña',
+                prefixIcon: Icon(Icons.remove_red_eye_outlined),
               ),
             ),
 
