@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geoglamour/main.dart';
+import 'package:geoglamour/nuevousuario.dart';
 import 'accesorio.dart';
 
 void main() {
@@ -70,6 +71,23 @@ class LoginScreen extends StatelessWidget {
                     Colors.deepOrange), // Cambia el color aquí
               ),
               child: Text('Iniciar sesión',
+                  style: TextStyle(
+                      color: Colors
+                          .white)), // Cambia el color del texto si es necesario
+            ),
+            SizedBox(height: 20.0),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegisterUserScreen()),
+                );
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Colors.deepOrange), // Cambia el color aquí
+              ),
+              child: Text('Nuevo Usuario',
                   style: TextStyle(
                       color: Colors
                           .white)), // Cambia el color del texto si es necesario
