@@ -76,7 +76,7 @@ class reportar extends StatelessWidget {
                 style: TextStyle(fontSize: 20),
               ),
               onTap: () {
-                Navigator.pop(
+                Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => MapScreen()),
                 ); // Cierra el Drawer
