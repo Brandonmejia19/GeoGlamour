@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geoglamour/accesorio.dart';
+import 'package:geoglamour/reportar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'login.dart';
@@ -16,23 +17,24 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class MapScreen extends StatelessWidget {
   @override
   late GoogleMapController mapController;
   LatLng? _currentLocation;
-  LatLng _initialLocation = const LatLng(13.565842, -89.115616); // Coordenadas iniciales
+  LatLng _initialLocation =
+      const LatLng(13.565842, -89.115616); // Coordenadas iniciales
 
   Marker _initialLocationMarker = Marker(
     markerId: const MarkerId("initial_location"),
-    position: const LatLng(13.565842, -89.115616), // Ubicación inicial
-    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue), // Icono personalizado (azul)
+    position: const LatLng(13.565842, -89.115616),
+    // Ubicación inicial
+    icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+    // Icono personalizado (azul)
     infoWindow: const InfoWindow(
       title: "Ubicación Inicial",
       snippet: "Lat: ${13.565842}, Lng: ${-89.115616}",
     ),
   );
-
 
   _centerOnLocation() {
     if (_currentLocation != null) {
@@ -47,7 +49,8 @@ class MapScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mapa Geoglamour', style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+        title: const Text('Mapa Geoglamour',
+            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
         backgroundColor: Colors.deepOrange,
         leading: Builder(
           builder: (BuildContext context) {
@@ -59,7 +62,6 @@ class MapScreen extends StatelessWidget {
             );
           },
         ),
-
       ),
       drawer: Drawer(
         child: ListView(
@@ -74,7 +76,8 @@ class MapScreen extends StatelessWidget {
                   Text(
                     'GeoGlamour',
                     style: TextStyle(fontSize: 30, color: Colors.white),
-                  ),Image.asset(
+                  ),
+                  Image.asset(
                     'logoblanco.png',
                     width: 1, // Ajusta el ancho según tus preferencias
                     height: 1, // Ajusta la altura según tus preferencias
@@ -83,22 +86,41 @@ class MapScreen extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text('Mapa',
-                style: TextStyle(
-                    fontSize: 20
-                ),),
+              title: Text(
+                'Mapa',
+                style: TextStyle(fontSize: 20),
+              ),
               onTap: () {
-                Navigator.pop(context,MaterialPageRoute(builder: (context) => MyApp()),); // Cierra el Drawer
+                Navigator.pop(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyApp()),
+                ); // Cierra el Drawer
                 // Agrega la lógica para navegar a la página de inicio aquí
               },
             ),
             ListTile(
-              title: Text('Accesorios',
-                style: TextStyle(
-                    fontSize: 20
-                ),),
+              title: Text(
+                'Accesorios',
+                style: TextStyle(fontSize: 20),
+              ),
               onTap: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => accesorios()),); // Cierra el Drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => accesorios()),
+                ); // Cierra el Drawer
+                // Agrega la lógica para navegar a la página "Acerca de" aquí
+              },
+            ),
+            ListTile(
+              title: Text(
+                'Reportar',
+                style: TextStyle(fontSize: 20),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => reportar()),
+                ); // Cierra el Drawer
                 // Agrega la lógica para navegar a la página "Acerca de" aquí
               },
             ),
@@ -106,13 +128,19 @@ class MapScreen extends StatelessWidget {
               title: Text(
                 'Cerrar sesión',
                 style: TextStyle(
-                  color: Colors.red, // Cambia el color del texto a rojo
-                  fontSize: 20.0, // Cambia el tamaño de la fuente según tus preferencias
-                  fontWeight: FontWeight.bold, // Cambia el peso de la fuente según tus preferencias
+                  color: Colors.red,
+                  // Cambia el color del texto a rojo
+                  fontSize: 20.0,
+                  // Cambia el tamaño de la fuente según tus preferencias
+                  fontWeight: FontWeight
+                      .bold, // Cambia el peso de la fuente según tus preferencias
                 ),
               ),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()),); // Cierra el Drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                ); // Cierra el Drawer
                 // Agrega la lógica para navegar a la página "Acerca de" aquí
               },
             ),
@@ -128,11 +156,13 @@ class MapScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  flex: 2, // Ajusta el valor de flex según tu preferencia para el ancho de la imagen
+                  flex: 2,
+                  // Ajusta el valor de flex según tu preferencia para el ancho de la imagen
                   child: Image.asset('images/pulsera1.jpg'),
                   // Cambia 'ruta_de_la_imagen.png' por la ruta de tu imagen
                 ),
-                const SizedBox(width: 16.0), // Agrega espacio entre la imagen y el texto
+                const SizedBox(width: 16.0),
+                // Agrega espacio entre la imagen y el texto
                 const Expanded(
                   flex: 3, // Ajusta el valor de flex para el ancho del texto
                   child: Column(
@@ -140,7 +170,8 @@ class MapScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Información de la foto',
-                        style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 16.0, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         'Descripción de la foto y detalles adicionales.',
@@ -165,15 +196,17 @@ class MapScreen extends StatelessWidget {
                   ),
                   markers: _currentLocation != null
                       ? Set<Marker>.from([
-                    _initialLocationMarker,// Agrega el marcador personalizado al conjunto de marcadores
-                  ])
+                          _initialLocationMarker,
+                          // Agrega el marcador personalizado al conjunto de marcadores
+                        ])
                       : Set<Marker>(),
                 ),
                 Positioned(
                   top: 500,
                   right: 0,
                   child: FloatingActionButton(
-                    onPressed: _centerOnLocation, // Define la función para centrar en la ubicación actual
+                    onPressed: _centerOnLocation,
+                    // Define la función para centrar en la ubicación actual
                     child: Icon(Icons.my_location),
                   ),
                 ),
@@ -183,6 +216,5 @@ class MapScreen extends StatelessWidget {
         ],
       ),
     );
-
   }
 }

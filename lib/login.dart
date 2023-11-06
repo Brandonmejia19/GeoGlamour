@@ -30,7 +30,8 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            FlutterLogo(size: 100.0), // Puedes reemplazarlo con tu propio logo o imagen
+            FlutterLogo(size: 100.0),
+            // Puedes reemplazarlo con tu propio logo o imagen
 
             SizedBox(height: 20.0),
 
@@ -65,10 +66,15 @@ class LoginScreen extends StatelessWidget {
                 );
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange), // Cambia el color aquí
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Colors.deepOrange), // Cambia el color aquí
               ),
-              child: Text('Iniciar sesión', style: TextStyle(color: Colors.white)), // Cambia el color del texto si es necesario
-            ), SizedBox(height: 10.0),
+              child: Text('Iniciar sesión',
+                  style: TextStyle(
+                      color: Colors
+                          .white)), // Cambia el color del texto si es necesario
+            ),
+            SizedBox(height: 10.0),
 
             TextButton(
               onPressed: () {

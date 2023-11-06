@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geoglamour/main.dart';
+import 'package:geoglamour/reportar.dart';
 import 'login.dart';
 
 void main() {
@@ -32,7 +33,6 @@ class accesorios extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
         title: Text('Accesorios'),
         backgroundColor: Colors.deepOrange,
       ),
@@ -51,7 +51,8 @@ class accesorios extends StatelessWidget {
                   Text(
                     'GeoGlamour',
                     style: TextStyle(fontSize: 30, color: Colors.white),
-                  ),Image.asset(
+                  ),
+                  Image.asset(
                     'logoblanco.png',
                     width: 1, // Ajusta el ancho según tus preferencias
                     height: 1, // Ajusta la altura según tus preferencias
@@ -60,22 +61,41 @@ class accesorios extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text('Mapa',
-                style: TextStyle(
-                    fontSize: 20
-                ),),
+              title: Text(
+                'Mapa',
+                style: TextStyle(fontSize: 20),
+              ),
               onTap: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) =>MapScreen()),); // Cierra el Drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MapScreen()),
+                ); // Cierra el Drawer
                 // Agrega la lógica para navegar a la página de inicio aquí
               },
             ),
             ListTile(
-              title: Text('Accesorios',
-                style: TextStyle(
-                    fontSize: 20
-                ),),
+              title: Text(
+                'Accesorios',
+                style: TextStyle(fontSize: 20),
+              ),
               onTap: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context) => accesorios()),); // Cierra el Drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => accesorios()),
+                ); // Cierra el Drawer
+                // Agrega la lógica para navegar a la página "Acerca de" aquí
+              },
+            ),
+            ListTile(
+              title: Text(
+                'Reportar',
+                style: TextStyle(fontSize: 20),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => reportar()),
+                ); // Cierra el Drawer
                 // Agrega la lógica para navegar a la página "Acerca de" aquí
               },
             ),
@@ -83,13 +103,19 @@ class accesorios extends StatelessWidget {
               title: Text(
                 'Cerrar sesión',
                 style: TextStyle(
-                  color: Colors.red, // Cambia el color del texto a rojo
-                  fontSize: 20.0, // Cambia el tamaño de la fuente según tus preferencias
-                  fontWeight: FontWeight.bold, // Cambia el peso de la fuente según tus preferencias
+                  color: Colors.red,
+                  // Cambia el color del texto a rojo
+                  fontSize: 20.0,
+                  // Cambia el tamaño de la fuente según tus preferencias
+                  fontWeight: FontWeight
+                      .bold, // Cambia el peso de la fuente según tus preferencias
                 ),
               ),
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()),); // Cierra el Drawer
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                ); // Cierra el Drawer
                 // Agrega la lógica para navegar a la página "Acerca de" aquí
               },
             ),
@@ -103,14 +129,16 @@ class accesorios extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(width: 20.0), // Espacio entre la imagen y la información
+                SizedBox(width: 20.0),
+                // Espacio entre la imagen y la información
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Accesorios con Geolocalizador',
-                        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         'Accesorios en tu pertenencia',
@@ -126,24 +154,30 @@ class accesorios extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 80, // Ajusta el ancho de la imagen según tu preferencia
-                  height: 100.0, // Ajusta la altura de la imagen según tu preferencia
-                  child: FlutterLogo(size: 100.0), // Puedes reemplazarlo con tu propia imagen
+                  width: 80,
+                  // Ajusta el ancho de la imagen según tu preferencia
+                  height: 100.0,
+                  // Ajusta la altura de la imagen según tu preferencia
+                  child: FlutterLogo(
+                      size: 100.0), // Puedes reemplazarlo con tu propia imagen
                 ),
-                SizedBox(width: 20.0), // Espacio entre la imagen y la información
+                SizedBox(width: 20.0),
+                // Espacio entre la imagen y la información
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Información de la foto',
-                        style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 24.0, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         'Descripción de la foto y detalles adicionales.',
                         style: TextStyle(fontSize: 16.0),
                       ),
-                      SizedBox(height: 16.0), // Espacio entre el texto y los botones
+                      SizedBox(height: 16.0),
+                      // Espacio entre el texto y los botones
                       Row(
                         children: [
                           ElevatedButton(
@@ -159,14 +193,14 @@ class accesorios extends StatelessWidget {
                             },
                             child: Text('Localizar'),
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange), // Cambia el color aquí
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.deepOrange), // Cambia el color aquí
                             ),
                           ),
                         ],
                       ),
                     ],
                   ),
-
                 ),
               ],
             ),
@@ -176,24 +210,30 @@ class accesorios extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 80, // Ajusta el ancho de la imagen según tu preferencia
-                  height: 100.0, // Ajusta la altura de la imagen según tu preferencia
-                  child: FlutterLogo(size: 100.0), // Puedes reemplazarlo con tu propia imagen
+                  width: 80,
+                  // Ajusta el ancho de la imagen según tu preferencia
+                  height: 100.0,
+                  // Ajusta la altura de la imagen según tu preferencia
+                  child: FlutterLogo(
+                      size: 100.0), // Puedes reemplazarlo con tu propia imagen
                 ),
-                SizedBox(width: 20.0), // Espacio entre la imagen y la información
+                SizedBox(width: 20.0),
+                // Espacio entre la imagen y la información
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Información de la foto',
-                        style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 24.0, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         'Descripción de la foto y detalles adicionales.',
                         style: TextStyle(fontSize: 16.0),
                       ),
-                      SizedBox(height: 16.0), // Espacio entre el texto y los botones
+                      SizedBox(height: 16.0),
+                      // Espacio entre el texto y los botones
                       Row(
                         children: [
                           ElevatedButton(
@@ -209,14 +249,14 @@ class accesorios extends StatelessWidget {
                             },
                             child: Text('Localizar'),
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange), // Cambia el color aquí
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.deepOrange), // Cambia el color aquí
                             ),
                           ),
                         ],
                       ),
                     ],
                   ),
-
                 ),
               ],
             ),
@@ -226,24 +266,30 @@ class accesorios extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: 80, // Ajusta el ancho de la imagen según tu preferencia
-                  height: 100.0, // Ajusta la altura de la imagen según tu preferencia
-                  child: FlutterLogo(size: 100.0), // Puedes reemplazarlo con tu propia imagen
+                  width: 80,
+                  // Ajusta el ancho de la imagen según tu preferencia
+                  height: 100.0,
+                  // Ajusta la altura de la imagen según tu preferencia
+                  child: FlutterLogo(
+                      size: 100.0), // Puedes reemplazarlo con tu propia imagen
                 ),
-                SizedBox(width: 20.0), // Espacio entre la imagen y la información
+                SizedBox(width: 20.0),
+                // Espacio entre la imagen y la información
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Información de la foto',
-                        style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 24.0, fontWeight: FontWeight.bold),
                       ),
                       Text(
                         'Descripción de la foto y detalles adicionales.',
                         style: TextStyle(fontSize: 16.0),
                       ),
-                      SizedBox(height: 16.0), // Espacio entre el texto y los botones
+                      SizedBox(height: 16.0),
+                      // Espacio entre el texto y los botones
                       Row(
                         children: [
                           ElevatedButton(
@@ -259,14 +305,14 @@ class accesorios extends StatelessWidget {
                             },
                             child: Text('Localizar'),
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(Colors.deepOrange), // Cambia el color aquí
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Colors.deepOrange), // Cambia el color aquí
                             ),
                           ),
                         ],
                       ),
                     ],
                   ),
-
                 ),
               ],
             ),
