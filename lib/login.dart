@@ -16,8 +16,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
+final TextEditingController usernameController = TextEditingController();
+final TextEditingController passwordController = TextEditingController();
+
 class LoginScreen extends StatelessWidget {
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -102,6 +106,23 @@ class LoginScreen extends StatelessWidget {
 
             TextButton(
               onPressed: () {
+   String username = usernameController.text;
+    String password = passwordController.text;
+
+    if (username == 'abigail' && password == 'itca123') {
+      // Las credenciales son válidas, redirige a la pantalla del mapa
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MapScreen()),
+      );
+    } else {
+      // Las credenciales no son válidas, muestra un mensaje de error
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Credenciales incorrectas'),
+        ),
+      );
+    }
                 // Agrega la lógica para el restablecimiento de la contraseña o registro
               },
               child: Text('¿Olvidaste tu contraseña?'),
