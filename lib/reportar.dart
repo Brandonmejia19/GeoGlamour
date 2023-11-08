@@ -191,7 +191,7 @@ class _ReportAccessoryFormState extends State<ReportAccessoryForm> {
             maxLines: 5,
             decoration: InputDecoration(
               hintText:
-                  'Escribe una descripción detallada del accesorio perdido.',
+              'Escribe una descripción detallada del accesorio perdido.',
             ),
           ),
           SizedBox(height: 16.0),

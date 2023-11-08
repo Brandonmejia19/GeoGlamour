@@ -27,136 +27,116 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+String $text1 = 'sdad';
 
 class accesorios extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Mapa Geoglamour',
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.black,
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            );
-          },
+        appBar: AppBar(
+          title: const Text('Mapa Geoglamour',
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+          backgroundColor: Colors.black,
+          leading: Builder(
+            builder: (BuildContext context) {
+              return IconButton(
+                icon: const Icon(Icons.menu),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              );
+            },
+          ),
         ),
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.black,
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      'GeoGlamour',
+                      style: TextStyle(fontSize: 30, color: Colors.white),
+                    ),
+                    Image.asset(
+                      'assets/logo2.png',
+                      width: 100, // Ajusta el ancho según tus preferencias
+                      height: 98, // Ajusta la altura según tus preferencias
+                    ), //
+                  ],
+                ),
               ),
-              child: Column(
-                children: [
-                  Text(
-                    'GeoGlamour',
-                    style: TextStyle(fontSize: 30, color: Colors.white),
+              ListTile(
+                leading: Icon(Icons.map),
+                title: Text(
+                  'Mapa',
+                  style: TextStyle(fontSize: 20),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MapScreen()),
+                  ); // Cierra el Drawer
+                  // Agrega la lógica para navegar a la página de inicio aquí
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.diamond_rounded),
+                title: Text(
+                  'Accesorios',
+                  style: TextStyle(fontSize: 20),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => accesorios()),
+                  ); // Cierra el Drawer
+                  // Agrega la lógica para navegar a la página "Acerca de" aquí
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.report),
+                title: Text(
+                  'Reportar',
+                  style: TextStyle(fontSize: 20),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => reportar()),
+                  ); // Cierra el Drawer
+                  // Agrega la lógica para navegar a la página "Acerca de" aquí
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.exit_to_app),
+                title: Text(
+                  'Cerrar sesión',
+                  style: TextStyle(
+                    color: Colors.red,
+                    // Cambia el color del texto a rojo
+                    fontSize: 20.0,
+                    // Cambia el tamaño de la fuente según tus preferencias
+                    fontWeight: FontWeight
+                        .bold, // Cambia el peso de la fuente según tus preferencias
                   ),
-                  Image.asset(
-                    'assets/logo2.png',
-                    width: 100, // Ajusta el ancho según tus preferencias
-                    height: 98, // Ajusta la altura según tus preferencias
-                  ), //
-                ],
-              ),
-            ),
-            ListTile(
-              leading: Icon(Icons.map),
-              title: Text(
-                'Mapa',
-                style: TextStyle(fontSize: 20),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MapScreen()),
-                ); // Cierra el Drawer
-                // Agrega la lógica para navegar a la página de inicio aquí
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.diamond_rounded),
-              title: Text(
-                'Accesorios',
-                style: TextStyle(fontSize: 20),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => accesorios()),
-                ); // Cierra el Drawer
-                // Agrega la lógica para navegar a la página "Acerca de" aquí
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.report),
-              title: Text(
-                'Reportar',
-                style: TextStyle(fontSize: 20),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => reportar()),
-                ); // Cierra el Drawer
-                // Agrega la lógica para navegar a la página "Acerca de" aquí
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text(
-                'Cerrar sesión',
-                style: TextStyle(
-                  color: Colors.red,
-                  // Cambia el color del texto a rojo
-                  fontSize: 20.0,
-                  // Cambia el tamaño de la fuente según tus preferencias
-                  fontWeight: FontWeight
-                      .bold, // Cambia el peso de la fuente según tus preferencias
                 ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  ); // Cierra el Drawer
+                  // Agrega la lógica para navegar a la página "Acerca de" aquí
+                },
               ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
-                ); // Cierra el Drawer
-                // Agrega la lógica para navegar a la página "Acerca de" aquí
-              },
-            ),
-            /* COMENTARIO PARA PRUEBA DE UBICACIO EN TIEMPO REAL
-           ListTile(
-              title: Text(
-                'Pruebaaaa',
-                style: TextStyle(
-                  color: Colors.red,
-                  // Cambia el color del texto a rojo
-                  fontSize: 20.0,
-                  // Cambia el tamaño de la fuente según tus preferencias
-                  fontWeight: FontWeight
-                      .bold, // Cambia el peso de la fuente según tus preferencias
-                ),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MapScreen2()),
-                ); // Cierra el Drawer
-                // Agrega la lógica para navegar a la página "Acerca de" aquí
-              },
-            ),*/
-          ],
+            ],
+          ),
         ),
-      ),
-      body:
+        body:
         SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(20.0),
@@ -177,6 +157,7 @@ class accesorios extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+
                           Text(
                             'Accesorios con Geolocalizador',
                             style: TextStyle(
@@ -201,7 +182,7 @@ class accesorios extends StatelessWidget {
                       height: 150,
                       // Ajusta la altura de la imagen según tu preferencia
                       child: Image.asset(
-                        'assets/collar.png',
+                        'assets/img.png',
                       ), // Puedes reemplazarlo con tu propia imagen
                     ),
                     SizedBox(width: 20.0),
@@ -211,12 +192,15 @@ class accesorios extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Información de la foto',
+                            'Collar para Mascotas',
                             style: TextStyle(
                                 fontSize: 24.0, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            'Descripción de la foto y detalles adicionales.',
+                            'ID:1343124\n'
+                                'Color: Blanco\n'
+                                'Informacion: Collar para gatos pequeños\n'
+                                'Dueño: Brandon Mejia\n',
                             style: TextStyle(fontSize: 16.0),
                           ),
                           SizedBox(height: 16.0),
@@ -225,6 +209,7 @@ class accesorios extends StatelessWidget {
                             children: [
                               ElevatedButton(
                                 onPressed: () {
+
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -277,12 +262,15 @@ class accesorios extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Información de la foto',
+                            'Collar para Personas',
                             style: TextStyle(
                                 fontSize: 24.0, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            'Descripción de la foto y detalles adicionales.',
+                            'ID:2452325\n'
+                                'Color: Negro\n'
+                                'Informacion: Collar con Accesorio incluido\n'
+                                'Dueño: Mercedes Abigail\n',
                             style: TextStyle(fontSize: 16.0),
                           ),
                           SizedBox(height: 16.0),
@@ -333,7 +321,7 @@ class accesorios extends StatelessWidget {
                       height: 150,
                       // Ajusta la altura de la imagen según tu preferencia
                       child: Image.asset(
-                        'assets/collar.png',
+                        'assets/img_1.png',
                       ), // Puedes reemplazarlo con tu propia imagen
                     ),
                     SizedBox(width: 20.0),
@@ -343,12 +331,15 @@ class accesorios extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Información de la foto',
+                            'LLavero (Tiburon)',
                             style: TextStyle(
                                 fontSize: 24.0, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            'Descripción de la foto y detalles adicionales.',
+                            'ID:9593842\n'
+                                'Color: Plateado\n'
+                                'Informacion: Llaver con forma de tiburon\n'
+                                'Dueño: Lennyn Ascencio\n',
                             style: TextStyle(fontSize: 16.0),
                           ),
                           SizedBox(height: 16.0),
@@ -399,7 +390,7 @@ class accesorios extends StatelessWidget {
                       height: 150,
                       // Ajusta la altura de la imagen según tu preferencia
                       child: Image.asset(
-                        'assets/collar.png',
+                        'assets/img.png',
                       ), // Puedes reemplazarlo con tu propia imagen
                     ),
                     SizedBox(width: 20.0),
@@ -409,12 +400,15 @@ class accesorios extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Información de la foto',
+                            'Collar para Mascotas',
                             style: TextStyle(
                                 fontSize: 24.0, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            'Descripción de la foto y detalles adicionales.',
+                            'ID:4341123\n'
+                                'Color: Rojo\n'
+                                'Informacion: Collar para gato adulto\n'
+                                'Dueño: Claudia Arely\n',
                             style: TextStyle(fontSize: 16.0),
                           ),
                           SizedBox(height: 16.0),
@@ -459,7 +453,6 @@ class accesorios extends StatelessWidget {
             ),
           ),
         )
-
     );
   }
 }
