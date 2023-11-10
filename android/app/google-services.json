@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "369053666887",
+    "project_id": "geoglamour-a2edc",
+    "storage_bucket": "geoglamour-a2edc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369053666887:android:516445d90277309ee92b62",
+        "android_client_info": {
+          "package_name": "com.glamour.geoglamour"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvQDdAUbm0qqGdNU3dOS2tz9cPTbSJVJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369053666887:android:36e99e9fc5999260e92b62",
+        "android_client_info": {
+          "package_name": "com.mercy.emprendimiento"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvQDdAUbm0qqGdNU3dOS2tz9cPTbSJVJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
