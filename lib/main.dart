@@ -1,11 +1,22 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:geoglamour/accesorio.dart';
+import 'package:geoglamour/firebase_options.dart';
 import 'package:geoglamour/reportar.dart';
+import 'package:geoglamour/views/home_page.dart';
+import 'package:geoglamour/views/login_page.dart';
+import 'package:geoglamour/views/sign_up_auth.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'login.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+WidgetsFlutterBinding.ensureInitialized();
+await Firebase.initializeApp(
+options: DefaultFirebaseOptions.currentPlatform,
+);
+runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -13,6 +24,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MapScreen(),
+      initialRoute: "/login",
+      routes: {
+        "/MapScreen": (context) =>  MapScreen(),
+        "/login":(context) => const LoginPage(),
+        "/signup":(context) => const SignUpPage(),
+      },
     );
   }
 }
