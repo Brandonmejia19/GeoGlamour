@@ -236,3 +236,30 @@ class _HomeState extends State<Home> {
                 );
               }),
             );
+            }else{
+            return const Center(
+              child: CircularProgressIndicator(),
+              );
+          } 
+        })
+      ),
+      floatingActionButton: FloatingActionButton(onPressed: () async{
+        //await Navigator.pushNamed(context, "/add");
+        setState(() {
+          
+        });
+        //print('Termino la espera');
+      },
+      child: const Icon(Icons.add),
+      ),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getDataStudents();
+  }
+
+
+}
