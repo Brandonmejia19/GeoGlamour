@@ -190,7 +190,7 @@ class MapScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  MaterialPageRoute(builder: (context) => LoginPage()),
                 ); // Cierra el Drawer
                 // Agrega la lógica para navegar a la página "Acerca de" aquí
               },

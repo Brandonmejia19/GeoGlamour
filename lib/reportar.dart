@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geoglamour/main.dart';
+import 'package:geoglamour/views/login_page.dart';
 import 'accesorio.dart';
 import 'login.dart';
 
@@ -127,7 +128,7 @@ class reportar extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  MaterialPageRoute(builder: (context) => LoginPage()),
                 ); // Cierra el Drawer
                 // Agrega la lógica para navegar a la página "Acerca de" aquí
               },

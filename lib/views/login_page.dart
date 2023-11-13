@@ -40,93 +40,104 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          //leading: const Icon(Icons.close),
-        leading: Builder(
-              builder: (BuildContext context) {
-                return IconButton(
-                  icon: const Icon(Icons.menu),
-                  onPressed: () => print('Has presionado el icono menu')
-                );
-              },
-            ),
-            
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                "Login",
-                style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
-              ),
-              //Image.asset("images/user.png"),
-              const SizedBox(
-                height: 30,
-              ),
-              _InputCustomized(_emailController,false,'Correo electronico', 'E-mail', 
-              TextInputType.emailAddress, Icons.email),
-              const SizedBox(
-                height: 30,
-              ),
-              InputWidget(
-                controller: _passwordController,
-                hintText: 'Contrasena',
-                isPasswordField: true,
-                //inputType: TextInputType.visiblePassword ,
-              ),
-              /* FormContainerWidget(
-                controller: _emailController,
-                hintText: "Email",
-                isPasswordField: false,
-              ),
-              const SizedBox(height: 10,),
-              FormContainerWidget(
-                controller: _passwordController,
-                hintText: "Password",
-                isPasswordField: true,
-              ) */
-              const SizedBox(height: 30,),
-              GestureDetector(
-                onTap: _signIn,
-                child: Container(
-                  width: double.infinity,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Center(child:Text("Login",style: 
-                  TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
-                ),
-              ),
-              const SizedBox(height: 20,),
-              Row(mainAxisAlignment: MainAxisAlignment.center,
+    appBar: AppBar(
+  backgroundColor: const Color.fromARGB(255, 0, 5, 8),  // Cambia a tu color deseado
+  leading: Builder(
+    builder: (BuildContext context) {
+      return IconButton(
+        icon: const Icon(Icons.menu),
+        onPressed: () => print('Has presionado el icono menu'),
+      );
+    },
+  ),
+),
+
+     body: Container(
+        color: Colors.white,  // Agrega el color blanco al fondo del body
+        child: SingleChildScrollView(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("No tienes una cuenta?"),
-                  const SizedBox(width: 5,),
-                  GestureDetector(
-                      onTap: (){
-                        Navigator.pushAndRemoveUntil(context, 
-                        MaterialPageRoute(builder: (context) => const SignUpPage()), 
-                        (route) => false);
-                      },
-                      child: const Text("Registrarme",style: 
-                      TextStyle(color: Colors.blue,fontWeight: FontWeight.bold),)),
-                      
-                ],
+                
+                const Text(
+                  "Inicio de sesión",
+                  style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
+                  
+                ),
+                Image.asset(
+                'assets/logon.png',
+                width: 250, // Ajusta el ancho según tus preferencias
+                height: 250, // Ajusta la altura según tus preferencias
               ),
-              const SizedBox(height: 25,),
-              Text('$mensaje',
-              style: const TextStyle(color: Colors.blue,
-              fontWeight: FontWeight.bold),)
-            ],
+                //Image.asset("images/user.png"),
+                const SizedBox(
+                  height: 30,
+                ),
+                _InputCustomized(_emailController,false,'Correo electronico', 'E-mail', 
+                TextInputType.emailAddress, Icons.email),
+                const SizedBox(
+                  height: 30,
+                ),
+                InputWidget(
+                  controller: _passwordController,
+                  hintText: 'Contrasena',
+                  isPasswordField: true,
+                  //inputType: TextInputType.visiblePassword ,
+                ),
+                /* FormContainerWidget(
+                  controller: _emailController,
+                  hintText: "Email",
+                  isPasswordField: false,
+                ),
+                const SizedBox(height: 10,),
+                FormContainerWidget(
+                  controller: _passwordController,
+                  hintText: "Password",
+                  isPasswordField: true,
+                ) */
+                const SizedBox(height: 30,),
+                GestureDetector(
+                  onTap: _signIn,
+                  child: Container(
+                    width: double.infinity,
+                    height: 45,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 7, 11, 15),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: const Center(child:Text("Login",style: 
+                    TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+                  ),
+                ),
+                const SizedBox(height: 20,),
+                Row(mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("No tienes una cuenta?"),
+                    const SizedBox(width: 5,),
+                    GestureDetector(
+                        onTap: (){
+                          Navigator.pushAndRemoveUntil(context, 
+                          MaterialPageRoute(builder: (context) => const SignUpPage()), 
+                          (route) => false);
+                        },
+                        child: const Text("Registrarme",style: 
+                        TextStyle(color: Color.fromARGB(255, 13, 111, 247),fontWeight: FontWeight.bold),)),
+                        
+                  ],
+                ),
+                const SizedBox(height: 25,),
+                Text('$mensaje',
+                style: const TextStyle(color: Colors.blue,
+                fontWeight: FontWeight.bold),)
+              ],
+            ),
           ),
         ),
       ),
-    );
+     ) );
   }
 
   void _signIn1() async {
