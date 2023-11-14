@@ -99,7 +99,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           Navigator.pushAndRemoveUntil(
                               context, MaterialPageRoute(builder: (context) => const LoginPage()), (route) => false);
                         },
-                        child: const Text("Login", style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),))
+                        child: const Text("Login", style: TextStyle(color: Color.fromARGB(255, 33, 201, 243), fontWeight: FontWeight.bold),))
                   ],
                 )
               ],
