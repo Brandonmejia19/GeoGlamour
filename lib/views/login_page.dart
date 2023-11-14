@@ -13,21 +13,7 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
 
-  final bool _isSigning = false;
-
-  final FirebaseAuthService _auth = FirebaseAuthService();
-
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  String? mensaje;
-
-  void notificacion(){
-    setState(() {
-
-    });
   }
 
   @override
