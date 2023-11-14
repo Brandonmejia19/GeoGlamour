@@ -200,7 +200,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               suffixIcon: Icon(
                 icon,
-                color: Colors.red,
+                color: Color.fromARGB(255, 235, 114, 169),
               )
             )
         ),
