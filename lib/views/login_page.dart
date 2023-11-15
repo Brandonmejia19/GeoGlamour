@@ -44,12 +44,12 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
         leading: Icon(Icons.person),
-        title: Text('Inicio de Sesión',
-        ),
+        title: Text('Inicio de Sesión' ),
       ),
 
-     body: Container(
-        color: Colors.white,  // Agrega el color blanco al fondo del body
+    body: Container(
+        color: Colors.white,
+        padding: EdgeInsets.symmetric(vertical: 20.0), // Ajusta el valor según sea necesario
         child: SingleChildScrollView(
           child: Center(
             child: Padding(
@@ -57,12 +57,11 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-              
-                Image.asset(
-                'assets/logon.png',
-                width: 250, // Ajusta el ancho según tus preferencias
-                height: 250, // Ajusta la altura según tus preferencias
-              ),
+                  Image.asset(
+                    'assets/logon.png',
+                    width: 250,
+                    height: 250,
+                  ),
                 //Image.asset("images/user.png"),
                 const SizedBox(
                   height: 30,
