@@ -40,17 +40,13 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(
-  backgroundColor: const Color.fromARGB(255, 0, 5, 8),  // Cambia a tu color deseado
-  leading: Builder(
-    builder: (BuildContext context) {
-      return IconButton(
-        icon: const Icon(Icons.menu),
-        onPressed: () => print('Has presionado el icono menu'),
-      );
-    },
-  ),
-),
+  appBar: AppBar(
+        backgroundColor: Colors.black,
+        automaticallyImplyLeading: false,
+        leading: Icon(Icons.person),
+        title: Text('Inicio de Sesión',
+        ),
+      ),
 
      body: Container(
         color: Colors.white,  // Agrega el color blanco al fondo del body
@@ -61,12 +57,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                
-                const Text(
-                  "Inicio de sesión",
-                  style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
-                  
-                ),
+              
                 Image.asset(
                 'assets/logon.png',
                 width: 250, // Ajusta el ancho según tus preferencias
