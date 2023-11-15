@@ -36,7 +36,8 @@ class LoginScreen extends StatelessWidget {
         leading: Icon(Icons.person),
         title: Text('Inicio de Sesión'),
       ),
-      body: Container(
+      body: 
+      Container(
         color: Colors.white,
         padding: EdgeInsets.all(20.0),
         child: Column(
