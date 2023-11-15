@@ -151,7 +151,7 @@ class accesorios extends StatelessWidget {
                     Icon(
                       Icons.location_on, // Puedes elegir cualquier icono que desees
                       size: 100, // Tamaño del ícono
-                      color: Colors.deepOrange, // Color del ícono
+                      color: Colors.red, // Color del ícono
                     ),
                     // Espacio entre la imagen y la información
                     Expanded(
@@ -219,6 +219,10 @@ class accesorios extends StatelessWidget {
                                   // Agrega aquí la lógica para el botón de "Información"
                                 },
                                 child: Text('Reportar'),
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all<Color>(
+                                      Colors.redAccent), // Cambia el color aquí
+                                ),
                               ),
                               SizedBox(width: 16.0), // Espacio entre los botones
                               ElevatedButton(
@@ -233,7 +237,7 @@ class accesorios extends StatelessWidget {
                                 child: Text('Localizar'),
                                 style: ButtonStyle(
                                   backgroundColor: MaterialStateProperty.all<Color>(
-                                      Colors.deepOrange), // Cambia el color aquí
+                                      Colors.lightGreen), // Cambia el color aquí
                                 ),
                               ),
                             ],
@@ -288,6 +292,10 @@ class accesorios extends StatelessWidget {
                                   // Agrega aquí la lógica para el botón de "Información"
                                 },
                                 child: Text('Reportar'),
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all<Color>(
+                                      Colors.red), // Cambia el color aquí
+                                ),
                               ),
                               SizedBox(width: 16.0), // Espacio entre los botones
                               ElevatedButton(
@@ -302,7 +310,7 @@ class accesorios extends StatelessWidget {
                                 child: Text('Localizar'),
                                 style: ButtonStyle(
                                   backgroundColor: MaterialStateProperty.all<Color>(
-                                      Colors.deepOrange), // Cambia el color aquí
+                                      Colors.lightGreen), // Cambia el color aquí
                                 ),
                               ),
                             ],
@@ -357,6 +365,10 @@ class accesorios extends StatelessWidget {
                                   // Agrega aquí la lógica para el botón de "Información"
                                 },
                                 child: Text('Reportar'),
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all<Color>(
+                                      Colors.red), // Cambia el color aquí
+                                ),
                               ),
                               SizedBox(width: 16.0), // Espacio entre los botones
                               ElevatedButton(
@@ -371,7 +383,7 @@ class accesorios extends StatelessWidget {
                                 child: Text('Localizar'),
                                 style: ButtonStyle(
                                   backgroundColor: MaterialStateProperty.all<Color>(
-                                      Colors.deepOrange), // Cambia el color aquí
+                                      Colors.lightGreen), // Cambia el color aquí
                                 ),
                               ),
                             ],
@@ -426,6 +438,10 @@ class accesorios extends StatelessWidget {
                                   // Agrega aquí la lógica para el botón de "Información"
                                 },
                                 child: Text('Reportar'),
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all<Color>(
+                                      Colors.red), // Cambia el color aquí
+                                ),
                               ),
                               SizedBox(width: 16.0), // Espacio entre los botones
                               ElevatedButton(
@@ -440,7 +456,7 @@ class accesorios extends StatelessWidget {
                                 child: Text('Localizar'),
                                 style: ButtonStyle(
                                   backgroundColor: MaterialStateProperty.all<Color>(
-                                      Colors.deepOrange), // Cambia el color aquí
+                                      Colors.lightGreen), // Cambia el color aquí
                                 ),
                               ),
                             ],
