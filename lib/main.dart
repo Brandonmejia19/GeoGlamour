@@ -99,7 +99,7 @@ class MapScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Mapa Geoglamour',
             style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.lightBlue,
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(

@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
   appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.lightBlue,
         automaticallyImplyLeading: false,
         leading: Icon(Icons.location_history_outlined),
         title: Text('Inicio de Sesión' ),
