@@ -43,8 +43,9 @@ class _LoginPageState extends State<LoginPage> {
   appBar: AppBar(
         backgroundColor: Colors.black,
         automaticallyImplyLeading: false,
-        leading: Icon(Icons.person),
+        leading: Icon(Icons.location_history_outlined),
         title: Text('Inicio de Sesión' ),
+        
       ),
 
     body: Container(
