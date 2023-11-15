@@ -72,7 +72,7 @@ class accesorios extends StatelessWidget {
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.map),
+                leading: Icon(Icons.map,color: Colors.lightGreen,),
                 title: Text(
                   'Mapa',
                   style: TextStyle(fontSize: 20),
@@ -86,7 +86,7 @@ class accesorios extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.diamond_rounded),
+                leading: Icon(Icons.diamond_rounded,color: Colors.lightBlue,),
                 title: Text(
                   'Accesorios',
                   style: TextStyle(fontSize: 20),
@@ -100,7 +100,7 @@ class accesorios extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.report),
+                leading: Icon(Icons.report,color: Colors.deepOrange,),
                 title: Text(
                   'Reportar',
                   style: TextStyle(fontSize: 20),
@@ -114,7 +114,7 @@ class accesorios extends StatelessWidget {
                 },
               ),
               ListTile(
-                leading: Icon(Icons.exit_to_app),
+                leading: Icon(Icons.exit_to_app,color: Colors.red,),
                 title: Text(
                   'Cerrar sesión',
                   style: TextStyle(
@@ -415,7 +415,7 @@ class accesorios extends StatelessWidget {
                           Text(
                             'Collar para Mascotas',
                             style: TextStyle(
-                                fontSize: 24.0, fontWeight: FontWeight.bold),
+                                fontSize: 24.0,fontWeight: FontWeight.bold,),
                           ),
                           Text(
                             'ID:4341123\n'

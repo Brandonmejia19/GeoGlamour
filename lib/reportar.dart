@@ -71,7 +71,7 @@ class reportar extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.map),
+              leading: Icon(Icons.map,color: Colors.lightGreen,),
               title: Text(
                 'Mapa',
                 style: TextStyle(fontSize: 20),
@@ -85,7 +85,7 @@ class reportar extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.diamond_rounded),
+              leading: Icon(Icons.diamond_rounded,color: Colors.lightBlue,),
               title: Text(
                 'Accesorios',
                 style: TextStyle(fontSize: 20),
@@ -99,7 +99,7 @@ class reportar extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.report),
+              leading: Icon(Icons.report,color: Colors.deepOrange,),
               title: Text(
                 'Reportar',
                 style: TextStyle(fontSize: 20),
@@ -113,7 +113,7 @@ class reportar extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.exit_to_app),
+              leading: Icon(Icons.exit_to_app,color: Colors.red,),
               title: Text(
                 'Cerrar sesión',
                 style: TextStyle(
@@ -226,10 +226,10 @@ class _ReportAccessoryFormState extends State<ReportAccessoryForm> {
                 },
               );
             },
-            child: Text('Reportar Accesorio Perdido'),
+            child: Text('Reportar'),
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all<Color>(
-                  Colors.deepOrange), // Cambia el color aquí
+                  Colors.red), // Cambia el color aquí
             ),
           ),
         ],
