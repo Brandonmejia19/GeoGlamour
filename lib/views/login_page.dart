@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
 
     body: Container(
         color: Colors.white,
-        padding: EdgeInsets.symmetric(vertical: 20.0), // Ajusta el valor según sea necesario
+        padding: EdgeInsets.symmetric(vertical:70.0), // Ajusta el valor según sea necesario
         child: SingleChildScrollView(
           child: Center(
             child: Padding(
