@@ -44,7 +44,7 @@ class _SignUpPageState extends State<SignUpPage> {
               children: [
                 const Text(
                   "Sign Up",
-                  style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold, color: Colors.lightBlue),
                 ),
                 const SizedBox(
                   height: 30,
@@ -85,7 +85,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: const Center(
                         child: Text(
                           "Sign Up",
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                         )),
                   ),
                 ),
@@ -99,7 +99,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           Navigator.pushAndRemoveUntil(
                               context, MaterialPageRoute(builder: (context) => const LoginPage()), (route) => false);
                         },
-                        child: const Text("Login", style: TextStyle(color: Color.fromARGB(255, 33, 201, 243), fontWeight: FontWeight.bold),))
+                        child: const Text("Login", style: TextStyle(color: Color.fromARGB(255, 68, 166, 241), fontWeight: FontWeight.bold),))
                   ],
                 )
               ],
