@@ -65,9 +65,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 //Image.asset("images/user.png"),
                 const SizedBox(
-                  height: 30,
+                  height: 60,
                 ),
-                _InputCustomized(_emailController,false,'Correo electronico', 'E-mail', 
+                _InputCustomized(_emailController,false,'Correo Electronico', 'E-mail', 
                 TextInputType.emailAddress, Icons.email),
                 const SizedBox(
                   height: 30,
@@ -96,11 +96,11 @@ class _LoginPageState extends State<LoginPage> {
                     width: double.infinity,
                     height: 45,
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 7, 11, 15),
+                      color: Color.fromARGB(255, 14, 238, 219),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: const Center(child:Text("Login",style: 
-                    TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)),
+                    TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)),
                   ),
                 ),
                 const SizedBox(height: 20,),
