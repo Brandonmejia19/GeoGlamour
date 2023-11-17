@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:geoglamour/main.dart';
 import 'package:geoglamour/views/login_page.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'accesorio.dart';
 import 'login.dart';
 
@@ -126,10 +129,20 @@ class reportar extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                ); // Cierra el Drawer
+                QuickAlert.show(
+      context: context,
+      text: '¿Realmente desea cerrar su sesión?',
+      type: QuickAlertType.confirm,
+      onConfirmBtnTap: (){
+        FirebaseAuth.instance.signOut();
+        Navigator.pushNamed(context, "/login");
+      }
+    ); 
+                //Navigator.push(
+                 // context,
+                 // MaterialPageRoute(builder: (context) => LoginPage()),
+               // ); // Cierra el Drawer
+
                 // Agrega la lógica para navegar a la página "Acerca de" aquí
               },
             ),

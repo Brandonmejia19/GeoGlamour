@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
   appBar: AppBar(
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: const Color.fromARGB(255, 9, 13, 15),
         automaticallyImplyLeading: false,
         leading: Icon(Icons.location_history_outlined),
         title: Text('Inicio de Sesión' ),
@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 InputWidget(
                   controller: _passwordController,
-                  hintText: 'Contrasena',
+                  hintText: 'Contraseña',
                   isPasswordField: true,
                   //inputType: TextInputType.visiblePassword ,
                 ),
@@ -96,11 +96,11 @@ class _LoginPageState extends State<LoginPage> {
                     width: double.infinity,
                     height: 45,
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 14, 238, 219),
+                      color: Color.fromARGB(255, 5, 6, 6),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Center(child:Text("Login",style: 
-                    TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)),
+                    child: const Center(child:Text("Inicio sesión",style: 
+                    TextStyle(color: Color.fromARGB(255, 247, 243, 243),fontWeight: FontWeight.bold),)),
                   ),
                 ),
                 const SizedBox(height: 20,),
@@ -115,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                           (route) => false);
                         },
                         child: const Text("Registrarme",style: 
-                        TextStyle(color: Color.fromARGB(255, 13, 111, 247),fontWeight: FontWeight.bold),)),
+                        TextStyle(color: Color.fromARGB(255, 1, 5, 11),fontWeight: FontWeight.bold),)),
                         
                   ],
                 ),
