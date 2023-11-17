@@ -60,8 +60,9 @@ void _onAddMarkerButtonPressed() {
 
 // Objeto con propiedades de latitud y longitud
 class Coordenadas {
-  double latitud ;
-  double longitud;
+
+  double latitud = latitudVariable;
+  double longitud = longitudVariable;
 
   Coordenadas({required this.latitud, required this.longitud});
 }
