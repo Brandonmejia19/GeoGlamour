@@ -41,12 +41,12 @@ class MyApp extends StatelessWidget {
 const LatLng _center = const LatLng(13.496515186614328, -88.8668064265836);
 final Set<Marker> _markers = {};
 LatLng _lastMapPosition = _center;
-MapType _currentMapType = MapType.satellite;
+MapType _currentMapType = MapType.normal;
 
 void _onMapTypeButtonPressed() {
   _lastMapPosition = _center;
   _currentMapType =
-  _currentMapType == MapType.satellite ? MapType.satellite : MapType.satellite;
+  _currentMapType == MapType.normal ? MapType.satellite : MapType.normal;
 }
 
 void _onAddMarkerButtonPressed() {
@@ -328,7 +328,7 @@ class _MapScreenState extends State<MapScreen> {
                   top: 400,
                   right: 0,
                   child: FloatingActionButton(
-                    onPressed: (){},
+                    onPressed: _onMapTypeButtonPressed,
                     // Define la función para centrar en la ubicación actual
                     backgroundColor: Colors.deepOrange,
                     child: Icon(Icons.map_sharp),
