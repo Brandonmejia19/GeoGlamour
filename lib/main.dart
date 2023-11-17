@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:geoglamour/accesorio.dart';
@@ -61,6 +62,7 @@ void _onAddMarkerButtonPressed() {
   ));
 }
 
+
 // Objeto con propiedades de latitud y longitud
 class Coordenadas {
   double latitud = 0;
@@ -75,26 +77,45 @@ Coordenadas coordenadas = Coordenadas(latitud: 13.497406, longitud: -88.866378);
 // Creación de un objeto LatLng usando las propiedades del objeto Coordenadas
 LatLng ubicacion = LatLng(coordenadas.latitud, coordenadas.longitud);
 
-class MapScreen extends StatelessWidget {
+class MapScreen extends StatefulWidget {
+  @override
+  _MapScreenState createState() => _MapScreenState();
+}
+
+class _MapScreenState extends State<MapScreen> {
   late GoogleMapController mapController;
+  List<Marker> _markers = [];
 
-  final LatLng _center = const LatLng(13.496515186614328, -88.8668064265836);
-
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
+  @override
+  void initState() {
+    super.initState();
+    _fetchCoordinatesFromFirebase();
   }
 
-  Future<void> obtenerUbicacionActual() async {
-    try {
-      Position posicion = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
-      );
+  Future<void> _fetchCoordinatesFromFirebase() async {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference coordenadasCollection = firestore.collection('coordenadas');
 
-      print('Ubicación actual: ${posicion.latitude}, ${posicion.longitude}');
-    } catch (e) {
-      print('Error al obtener la ubicación: $e');
-    }
+    QuerySnapshot querySnapshot = await coordenadasCollection.get();
+
+    setState(() {
+      _markers = querySnapshot.docs.map((DocumentSnapshot document) {
+        Map<String, dynamic> data = document.data() as Map<String, dynamic>;
+        double latitud = data['latitud'];
+        double longitud = data['longitud'];
+
+        return Marker(
+          markerId: MarkerId(document.id),
+          position: LatLng(latitud, longitud),
+          infoWindow: InfoWindow(
+            title: 'Coordenadas',
+            snippet: '$latitud, $longitud',
+          ),
+        );
+      }).toList();
+    });
   }
+
 
   LatLng? _currentLocation;
   LatLng _initialLocation =
@@ -126,7 +147,7 @@ class MapScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Mapa Geoglamour',
             style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: const Color.fromARGB(255, 6, 12, 15),
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -161,7 +182,7 @@ class MapScreen extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.map,color: Colors.lightGreen,),
+              leading: Icon(Icons.map,color: Colors.black,),
               title: Text(
                 'Mapa',
                 style: TextStyle(fontSize: 20),
