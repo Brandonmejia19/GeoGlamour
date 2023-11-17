@@ -51,8 +51,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   Image.asset(
                     'assets/logon.png',
-                    width: 250,
-                    height: 250,
+                    width: 200,
+                    height: 200,
                   ),
                   const SizedBox(
                     height: 30,
