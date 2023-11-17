@@ -1,17 +1,14 @@
-import 'dart:convert';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:geoglamour/accesorio.dart';
 import 'package:geoglamour/firebase_options.dart';
 import 'package:geoglamour/reportar.dart';
-import 'package:geoglamour/views/home_page.dart';
 import 'package:geoglamour/views/login_page.dart';
 import 'package:geoglamour/views/sign_up_auth.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 
-
-import 'login.dart';
 
 void main() async {
 WidgetsFlutterBinding.ensureInitialized();
@@ -54,7 +51,7 @@ void _onAddMarkerButtonPressed() {
     markerId: MarkerId(_lastMapPosition.toString()),
     position: _lastMapPosition,
     infoWindow: InfoWindow(
-      title: 'Casa gautemala',
+      title: 'Casa guatemala',
       snippet: '5 Star Rating',
     ),
     icon: BitmapDescriptor.defaultMarker,
@@ -63,14 +60,16 @@ void _onAddMarkerButtonPressed() {
 
 // Objeto con propiedades de latitud y longitud
 class Coordenadas {
-  double latitud = 0;
-  double longitud = 0;
+  double latitud ;
+  double longitud;
 
   Coordenadas({required this.latitud, required this.longitud});
 }
 
-// Creación de un objeto Coordenadas
-Coordenadas coordenadas = Coordenadas(latitud: 13.497406, longitud: -88.866378);
+double latitudVariable = 13.496515186614328;
+double longitudVariable = -88.8668064265836;
+
+Coordenadas coordenadas = Coordenadas(latitud: latitudVariable, longitud: longitudVariable);
 
 // Creación de un objeto LatLng usando las propiedades del objeto Coordenadas
 LatLng ubicacion = LatLng(coordenadas.latitud, coordenadas.longitud);
