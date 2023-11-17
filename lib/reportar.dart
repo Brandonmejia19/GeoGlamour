@@ -183,6 +183,8 @@ class ReportAccessoryForm extends StatefulWidget {
 class _ReportAccessoryFormState extends State<ReportAccessoryForm> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
+  final TextEditingController comentarioController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -270,14 +272,38 @@ class _ReportAccessoryFormState extends State<ReportAccessoryForm> {
           ),
         ],
       ),
-      
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start, // Alinea los elementos a la izquierda
+              children: [
+                Text('Comentario:'),
+                TextFormField(
+                  controller: comentarioController,
+                  decoration: InputDecoration(
+                    hintText: 'Da tu opinion',
+                    labelText: '',
+                    labelStyle: TextStyle(color: const Color.fromARGB(255, 15, 16, 17)),
+                    hintStyle: TextStyle(color: Colors.grey),
+                    prefixIcon: Icon(Icons.person, color: Color.fromARGB(255, 188, 4, 4)),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: const Color.fromARGB(255, 1, 2, 2)),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(color: const Color.fromARGB(255, 20, 20, 21), width: 2.0),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
                 // Aquí puedes agregar la lógica para enviar el reporte del accesorio perdido
                 String accessoryName = nameController.text;
                 String accessoryDescription = descriptionController.text;
-      
+                String accessoryCo = comentarioController.text;
+
                 // Puedes enviar estos datos a un servicio web o una base de datos
                 // para su procesamiento.
                 // Por ahora, simplemente mostraremos una alerta con los datos.
@@ -288,7 +314,9 @@ class _ReportAccessoryFormState extends State<ReportAccessoryForm> {
                     return AlertDialog(
                       title: Text('Reporte Enviado'),
                       content: Text(
-                        'Nombre del accesorio: $accessoryName\nDescripción: $accessoryDescription',
+                        'Nombre del accesorio: $accessoryName\nDescripción: $accessoryDescription'
+                            '\ncomentario: $accessoryCo',
+
                       ),
                       actions: <Widget>[
                         TextButton(
@@ -318,6 +346,7 @@ class _ReportAccessoryFormState extends State<ReportAccessoryForm> {
   void dispose() {
     nameController.dispose();
     descriptionController.dispose();
+    comentarioController.dispose();
     super.dispose();
   }
 }

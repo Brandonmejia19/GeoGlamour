@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-const LatLng _center = const LatLng(13.496515186614328, -88.8668064265836);
+const LatLng _center = const LatLng(13.641215, -88.784548);
 final Set<Marker> _markers = {};
 LatLng _lastMapPosition = _center;
 MapType _currentMapType = MapType.normal;
@@ -71,8 +71,8 @@ class MapScreen extends StatefulWidget {
 
 }
 
-double latitudVariable = 13.496515186614328;
-double longitudVariable = -88.8668064265836;
+double latitudVariable =13.641215 ;
+double longitudVariable =-88.784548;
 
 class Coordenadas {
   double latitud = latitudVariable;
@@ -306,7 +306,7 @@ class _MapScreenState extends State<MapScreen> {
                   markers: {
                     const Marker(
                       markerId: const MarkerId("Accesorios"),
-                      position: LatLng(13.496515186614328, -88.8668064265836),
+                      position: LatLng(13.641215, -88.784548),
                       infoWindow: InfoWindow(
                         title: "Accesorio #1",
                         snippet: "Collar para Mascotas",
