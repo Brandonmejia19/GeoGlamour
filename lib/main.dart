@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:geoglamour/accesorio.dart';
@@ -7,6 +8,7 @@ import 'package:geoglamour/views/home_page.dart';
 import 'package:geoglamour/views/login_page.dart';
 import 'package:geoglamour/views/sign_up_auth.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:geolocator/geolocator.dart';
 
 
 import 'login.dart';
@@ -18,6 +20,7 @@ options: DefaultFirebaseOptions.currentPlatform,
 );
 runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -34,8 +37,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-const LatLng _center = const LatLng(13.497406, -88.866378);
+const LatLng _center = const LatLng(13.496515186614328, -88.8668064265836);
 final Set<Marker> _markers = {};
 LatLng _lastMapPosition = _center;
 MapType _currentMapType = MapType.satellite;
@@ -43,7 +45,7 @@ MapType _currentMapType = MapType.satellite;
 void _onMapTypeButtonPressed() {
   _lastMapPosition = _center;
   _currentMapType =
-  _currentMapType == MapType.normal ? MapType.satellite : MapType.normal;
+  _currentMapType == MapType.satellite ? MapType.satellite : MapType.satellite;
 }
 
 void _onAddMarkerButtonPressed() {
@@ -59,28 +61,53 @@ void _onAddMarkerButtonPressed() {
   ));
 }
 
+// Objeto con propiedades de latitud y longitud
+class Coordenadas {
+  double latitud = 0;
+  double longitud = 0;
+
+  Coordenadas({required this.latitud, required this.longitud});
+}
+
+// Creación de un objeto Coordenadas
+Coordenadas coordenadas = Coordenadas(latitud: 13.497406, longitud: -88.866378);
+
+// Creación de un objeto LatLng usando las propiedades del objeto Coordenadas
+LatLng ubicacion = LatLng(coordenadas.latitud, coordenadas.longitud);
+
 class MapScreen extends StatelessWidget {
   late GoogleMapController mapController;
 
-  final LatLng _center = const LatLng(-33.86, 151.20);
+  final LatLng _center = const LatLng(13.496515186614328, -88.8668064265836);
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
 
+  Future<void> obtenerUbicacionActual() async {
+    try {
+      Position posicion = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high,
+      );
+
+      print('Ubicación actual: ${posicion.latitude}, ${posicion.longitude}');
+    } catch (e) {
+      print('Error al obtener la ubicación: $e');
+    }
+  }
+
   LatLng? _currentLocation;
   LatLng _initialLocation =
-  const LatLng(13.497406, -88.866378); // Coordenadas iniciales
+ LatLng(coordenadas.latitud, coordenadas.longitud); // Coordenadas iniciales
 
   Marker _initialLocationMarker = Marker(
     markerId: const MarkerId("initial_location"),
-    position: const LatLng(13.497371, -88.866378),
+    position:  LatLng(coordenadas.latitud, coordenadas.longitud),
     // Ubicación inicial
     icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
     // Icono personalizado (azul)
     infoWindow: const InfoWindow(
       title: "Ubicación Inicial",
-      snippet: "Lat: ${13.497371}, Lng: ${-88.866378}",
     ),
   );
 
@@ -252,7 +279,7 @@ class MapScreen extends StatelessWidget {
                   markers: {
                     const Marker(
                       markerId: const MarkerId("Accesorios"),
-                      position: LatLng(13.497371, -88.866378),
+                      position: LatLng(13.496515186614328, -88.8668064265836),
                       infoWindow: InfoWindow(
                         title: "Accesorio #1",
                         snippet: "Collar para Mascotas",
@@ -274,7 +301,7 @@ class MapScreen extends StatelessWidget {
                   top: 400,
                   right: 0,
                   child: FloatingActionButton(
-                    onPressed: _onMapTypeButtonPressed,
+                    onPressed: (){},
                     // Define la función para centrar en la ubicación actual
                     backgroundColor: Colors.deepOrange,
                     child: Icon(Icons.map_sharp),

@@ -38,11 +38,11 @@ dependencies:
   google_maps_flutter: ^2.0.8
   url_launcher: ^6.2.1
   qr_code_scanner: ^1.0.1
-  qr_flutter: ^4.1.0
   firebase_core: ^2.22.0
   cloud_firestore: ^4.13.0
   quickalert: ^1.0.2
   firebase_auth: ^4.13.0
+  geolocator: ^10.1.0
 
 dev_dependencies:
   flutter_test:
