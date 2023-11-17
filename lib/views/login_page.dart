@@ -78,17 +78,6 @@ class _LoginPageState extends State<LoginPage> {
                   isPasswordField: true,
                   //inputType: TextInputType.visiblePassword ,
                 ),
-                /* FormContainerWidget(
-                  controller: _emailController,
-                  hintText: "Email",
-                  isPasswordField: false,
-                ),
-                const SizedBox(height: 10,),
-                FormContainerWidget(
-                  controller: _passwordController,
-                  hintText: "Password",
-                  isPasswordField: true,
-                ) */
                 const SizedBox(height: 30,),
                 GestureDetector(
                   onTap: _signIn,
