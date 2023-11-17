@@ -188,7 +188,7 @@ class _MapScreenState extends State<MapScreen> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.map,color: Colors.black,),
+              leading: Icon(Icons.map,color: Colors.lightGreen,),
               title: Text(
                 'Mapa',
                 style: TextStyle(fontSize: 20),
@@ -202,7 +202,7 @@ class _MapScreenState extends State<MapScreen> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.diamond_rounded,color: const Color.fromARGB(255, 3, 3, 3),),
+              leading: Icon(Icons.diamond_rounded,color: Colors.lightBlue,),
               title: Text(
                 'Accesorios',
                 style: TextStyle(fontSize: 20),
