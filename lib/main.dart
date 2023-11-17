@@ -202,7 +202,7 @@ class _MapScreenState extends State<MapScreen> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.diamond_rounded,color: Colors.lightBlue,),
+              leading: Icon(Icons.diamond_rounded,color: const Color.fromARGB(255, 3, 3, 3),),
               title: Text(
                 'Accesorios',
                 style: TextStyle(fontSize: 20),

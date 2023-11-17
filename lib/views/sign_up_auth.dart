@@ -6,20 +6,17 @@ import 'package:geoglamour/widget/input_widget.dart';
 
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+  const SignUpPage({Key? key});
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-
   final FirebaseAuthService _auth = FirebaseAuthService();
-
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-
 
   @override
   void dispose() {
@@ -33,7 +30,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SignUp"),
+        title: const Text("Registrarse"),
       ),
       body: Center(
         child: Padding(
@@ -42,10 +39,16 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                
                 const Text(
-                  "Sign Up",
-                  style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold, color: Colors.lightBlue),
+                  "Registrarse",
+                  style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 5, 7, 7)),
                 ),
+                  Image.asset(
+                    'assets/logon.png',
+                    width: 250,
+                    height: 250,
+                  ),
                 const SizedBox(
                   height: 30,
                 ),
@@ -79,13 +82,13 @@ class _SignUpPageState extends State<SignUpPage> {
                     width: double.infinity,
                     height: 45,
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: const Color.fromARGB(255, 8, 9, 9),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: const Center(
                         child: Text(
-                          "Sign Up",
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                          "Registrarme",
+                          style: TextStyle(color: Color.fromARGB(255, 249, 248, 248), fontWeight: FontWeight.bold),
                         )),
                   ),
                 ),
@@ -110,20 +113,23 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  void _signUp() async {
+   void _signUp() async {
     String username = _usernameController.text;
     String email = _emailController.text;
     String password = _passwordController.text;
 
-    User? user = await _auth.signUpWithEmailAndPassword(email, password);
+    try {
+      User? user = await _auth.signUpWithEmailAndPassword(email, password);
 
-    if (user != null){
-      print("Usuario agregado satisfactoriamente.");
-      Navigator.pushNamed(context, "/login");
-    } else{
-      print("Some error happend");
+      if (user != null) {
+        print("Usuario agregado satisfactoriamente.");
+        Navigator.pushNamed(context, "/login");
+      } else {
+        print("No se pudo registrar al usuario.");
+      }
+    } catch (e) {
+      print("Error durante el registro: $e");
+      // Puedes mostrar el error al usuario o realizar acciones adicionales según tus necesidades.
     }
-
   }
-
 }
