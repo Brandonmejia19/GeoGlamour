@@ -74,7 +74,7 @@ class reportar extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.map,color: Color.fromARGB(255, 226, 131, 7),),
+              leading: Icon(Icons.map,color: Colors.lightGreen,),
               title: Text(
                 'Mapa',
                 style: TextStyle(fontSize: 20),
@@ -88,7 +88,7 @@ class reportar extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.diamond_rounded,color: const Color.fromARGB(255, 6, 8, 8),),
+              leading: Icon(Icons.diamond_rounded,color: Colors.lightBlue,),
               title: Text(
                 'Accesorios',
                 style: TextStyle(fontSize: 20),
