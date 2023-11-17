@@ -74,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 InputWidget(
                   controller: _passwordController,
-                  hintText: 'Contrasena',
+                  hintText: 'Contraseña',
                   isPasswordField: true,
                   //inputType: TextInputType.visiblePassword ,
                 ),

@@ -64,23 +64,30 @@ void _onAddMarkerButtonPressed() {
 
 
 // Objeto con propiedades de latitud y longitud
-class Coordenadas {
-  double latitud = 0;
-  double longitud = 0;
-
-  Coordenadas({required this.latitud, required this.longitud});
-}
-
-// Creación de un objeto Coordenadas
-Coordenadas coordenadas = Coordenadas(latitud: 13.497406, longitud: -88.866378);
-
-// Creación de un objeto LatLng usando las propiedades del objeto Coordenadas
-LatLng ubicacion = LatLng(coordenadas.latitud, coordenadas.longitud);
 
 class MapScreen extends StatefulWidget {
   @override
   _MapScreenState createState() => _MapScreenState();
+
 }
+
+double latitudVariable = 13.496515186614328;
+double longitudVariable = -88.8668064265836;
+
+class Coordenadas {
+  double latitud = latitudVariable;
+  double longitud= longitudVariable;
+
+  Coordenadas({required this.latitud, required this.longitud});
+
+}
+
+// Creación de un objeto Coordenadas
+Coordenadas coordenadas = Coordenadas(latitud: latitudVariable, longitud: longitudVariable);
+
+// Creación de un objeto LatLng usando las propiedades del objeto Coordenadas
+LatLng ubicacion = LatLng(coordenadas.latitud, coordenadas.longitud);
+
 
 class _MapScreenState extends State<MapScreen> {
   late GoogleMapController mapController;
@@ -115,7 +122,6 @@ class _MapScreenState extends State<MapScreen> {
       }).toList();
     });
   }
-
 
   LatLng? _currentLocation;
   LatLng _initialLocation =
