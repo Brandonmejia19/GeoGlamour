@@ -324,7 +324,7 @@ class _MapScreenState extends State<MapScreen> {
                     child: Icon(Icons.my_location),
                   ),
                 ),
-                Positioned(
+               /* Positioned(
                   top: 400,
                   right: 0,
                   child: FloatingActionButton(
@@ -333,7 +333,7 @@ class _MapScreenState extends State<MapScreen> {
                     backgroundColor: Colors.deepOrange,
                     child: Icon(Icons.map_sharp),
                   ),
-                ),
+                ),*/
                 Positioned(
                   top: 330,
                   right: 0,

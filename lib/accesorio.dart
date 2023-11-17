@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:geoglamour/main.dart';
 import 'package:geoglamour/reportar.dart';
 import 'package:geoglamour/views/login_page.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'login.dart';
 
 void main() {
@@ -35,9 +38,9 @@ class accesorios extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Mapa Geoglamour',
+          title: const Text(' Geoglamour',
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-          backgroundColor: Colors.lightBlue,
+          backgroundColor: const Color.fromARGB(255, 3, 5, 6),
           leading: Builder(
             builder: (BuildContext context) {
               return IconButton(
@@ -127,10 +130,20 @@ class accesorios extends StatelessWidget {
                   ),
                 ),
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
-                  ); // Cierra el Drawer
+
+                  QuickAlert.show(
+      context: context,
+      text: '¿Realmente desea cerrar su sesión?',
+      type: QuickAlertType.confirm,
+      onConfirmBtnTap: (){
+        FirebaseAuth.instance.signOut();
+        Navigator.pushNamed(context, "/login");
+
+      } );
+                  //Navigator.push(
+                    //context,
+                   // MaterialPageRoute(builder: (context) => LoginPage()),
+                  //); // Cierra el Drawer
                   // Agrega la lógica para navegar a la página "Acerca de" aquí
                 },
               ),
@@ -151,7 +164,7 @@ class accesorios extends StatelessWidget {
                     Icon(
                       Icons.location_on, // Puedes elegir cualquier icono que desees
                       size: 100, // Tamaño del ícono
-                      color: Colors.red, // Color del ícono
+                      color: const Color.fromARGB(255, 236, 19, 3), // Color del ícono
                     ),
                     // Espacio entre la imagen y la información
                     Expanded(

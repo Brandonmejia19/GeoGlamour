@@ -37,9 +37,9 @@ class reportar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mapa Geoglamour',
+        title: const Text(' Geoglamour',
             style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.lightBlue,
+        backgroundColor: const Color.fromARGB(255, 9, 14, 16),
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -74,7 +74,7 @@ class reportar extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.map,color: Colors.lightGreen,),
+              leading: Icon(Icons.map,color: Color.fromARGB(255, 226, 131, 7),),
               title: Text(
                 'Mapa',
                 style: TextStyle(fontSize: 20),
@@ -88,7 +88,7 @@ class reportar extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.diamond_rounded,color: Colors.lightBlue,),
+              leading: Icon(Icons.diamond_rounded,color: const Color.fromARGB(255, 6, 8, 8),),
               title: Text(
                 'Accesorios',
                 style: TextStyle(fontSize: 20),
@@ -188,64 +188,128 @@ class _ReportAccessoryFormState extends State<ReportAccessoryForm> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start, // Alinea los elementos a la izquierda
+        children: [
           Text('Nombre del accesorio:'),
           TextFormField(
-            controller: nameController,
-            decoration: InputDecoration(
-              hintText: 'Ejemplo: Cartera, Llaves, Gafas, etc.',
-            ),
+        controller: nameController,
+        decoration: InputDecoration(
+          hintText: 'Ejemplo: Cartera, Llaves, Gafas, etc.',
+          labelText: '',
+          labelStyle: TextStyle(color: const Color.fromARGB(255, 15, 16, 17)),
+          hintStyle: TextStyle(color: Colors.grey),
+          prefixIcon: Icon(Icons.diamond, color: Color.fromARGB(255, 188, 4, 4)),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 1, 2, 2)),
           ),
-          SizedBox(height: 16.0),
-          Text('Descripción del accesorio perdido:'),
-          TextFormField(
-            controller: descriptionController,
-            maxLines: 5,
-            decoration: InputDecoration(
-              hintText:
-              'Escribe una descripción detallada del accesorio perdido.',
-            ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 20, 20, 21), width: 2.0),
           ),
-          SizedBox(height: 16.0),
-          ElevatedButton(
-            onPressed: () {
-              // Aquí puedes agregar la lógica para enviar el reporte del accesorio perdido
-              String accessoryName = nameController.text;
-              String accessoryDescription = descriptionController.text;
-
-              // Puedes enviar estos datos a un servicio web o una base de datos
-              // para su procesamiento.
-              // Por ahora, simplemente mostraremos una alerta con los datos.
-
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    title: Text('Reporte Enviado'),
-                    content: Text(
-                      'Nombre del accesorio: $accessoryName\nDescripción: $accessoryDescription',
-                    ),
-                    actions: <Widget>[
-                      TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Text('Cerrar'),
-                      ),
-                    ],
-                  );
-                },
-              );
-            },
-            child: Text('Reportar'),
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(
-                  Colors.red), // Cambia el color aquí
-            ),
+        ),
           ),
         ],
+      ),
+      
+            Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 16.0),
+          Text('Descripción del accesorio perdido:', style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+          TextFormField(
+        controller: descriptionController,
+        maxLines: 5,
+        decoration: InputDecoration(
+          prefixIcon: Icon(Icons.description, color: Color.fromARGB(255, 188, 4, 4)), // Icono a la izquierda
+          hintText: 'Escribe una descripción detallada del accesorio perdido.',
+          labelText: '',
+          labelStyle: TextStyle(color: const Color.fromARGB(255, 6, 6, 6)),
+          hintStyle: TextStyle(color: Colors.grey),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(40.0),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 13, 13, 13)),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 4, 4, 4), width: 2.0),
+          ),
+        ),
+          ),
+        ],
+      ),
+      
+      
+            Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Número de teléfono', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+          SizedBox(height: 8.0),
+          TextFormField(
+        controller: nameController,
+        decoration: InputDecoration(
+          hintText: 'Teléfono',
+          labelText: '',
+          labelStyle: TextStyle(color: const Color.fromARGB(255, 15, 16, 17)),
+          hintStyle: TextStyle(color: Colors.grey),
+          prefixIcon: Icon(Icons.phone_android, color:  Color.fromARGB(255, 245, 5, 5)), // Icono a la izquierda
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 1, 2, 2)),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(color: const Color.fromARGB(255, 20, 20, 21), width: 2.0),
+          ),
+        ),
+          ),
+        ],
+      ),
+      
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () {
+                // Aquí puedes agregar la lógica para enviar el reporte del accesorio perdido
+                String accessoryName = nameController.text;
+                String accessoryDescription = descriptionController.text;
+      
+                // Puedes enviar estos datos a un servicio web o una base de datos
+                // para su procesamiento.
+                // Por ahora, simplemente mostraremos una alerta con los datos.
+      
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text('Reporte Enviado'),
+                      content: Text(
+                        'Nombre del accesorio: $accessoryName\nDescripción: $accessoryDescription',
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('Cerrar'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              child: Text('Reportar'),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(
+                    Colors.red), // Cambia el color aquí
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

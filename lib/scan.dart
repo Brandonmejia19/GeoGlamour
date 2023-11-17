@@ -29,22 +29,26 @@ body: Container(
       SizedBox(
         height: 20.0,
       ),
-      FloatingActionButton(
-        padding:  EdgeInsets.all(15.0),
+
+SizedBox(height: 20.0),
+            ElevatedButton(
+
         child: Text("Scan qr "),
-        onPressed: () {
-        
-      },
-      shape: RoudendRectangleBorder(
+              onPressed: () {
+                // Aquí puedes manejar la lógica cuando se presiona el botón
+               
+               
+              },
+            shape: RoudendRectangleBorder(
         borderRadius: BorderRadius.circular(20.0),
         side: BorderSide(color: Colors.blue, )
-      )
-      )
+      ),
+            )
     ],
   ),
 ),
     );
   }
-}*/
-  
+}
+  */
   
