@@ -280,8 +280,8 @@ class _MapScreenState extends State<MapScreen> {
                             fontSize: 16.0, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        'Collar Rojo para gatos cachorros \n'
-                            'ID:2234242\n'
+                        'Collar para perro\n'
+                            'ID:6354242\n'
                             'Dueño: Brandon Mejia',
                         style: TextStyle(fontSize: 15.0),
                       ),
